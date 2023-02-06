@@ -10,9 +10,9 @@ function errorHandler(err, req, res, next) {
     httpStatusCode = err.httpStatusCode
     message = err.message
   } else {
-    // hiding the detailed error message in production
+    // hide the detailed error message in production
     // for security reasons
-    // (assuming that in production there is an env
+    // (assume that in production there is an env
     //  called ENV that contains the string "production")
     if (process.env.ENV !== "production") {
       // since in JavaScript you can also
@@ -27,17 +27,17 @@ function errorHandler(err, req, res, next) {
 
   let stackTrace = undefined
 
-  // returning the stack trace only when
+  // return the stack trace only when
   // developing locally or in stage
   if (process.env.ENV !== "production") {
     stackTrace = err.stack
   }
 
-  // logging the error
+  // logg the error
   console.error(err)
   // other custom behaviors...
 
-  // returning the standard error response
+  // return the standard error response
   res.status(httpStatusCode).send({
     error: {
       message: message,

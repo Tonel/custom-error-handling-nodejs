@@ -9,8 +9,10 @@ const app = express()
 
 app.use(greetingRouter)
 
+// register the AppSignal middleware
 app.use(expressErrorHandler)
 
+// register the custom error handling middleware
 app.use(errorHandler)
 
 app.listen(PORT, () => {
