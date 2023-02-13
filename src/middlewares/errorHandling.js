@@ -12,9 +12,7 @@ function errorHandler(err, req, res, next) {
   } else {
     // hide the detailed error message in production
     // for security reasons
-    // (assume that in production there is an env
-    //  called ENV that contains the string "production")
-    if (process.env.ENV !== "production") {
+    if (process.env.NODE_ENV !== "production") {
       // since in JavaScript you can also
       // directly throw strings
       if (typeof err === "string") {
@@ -29,7 +27,7 @@ function errorHandler(err, req, res, next) {
 
   // return the stack trace only when
   // developing locally or in stage
-  if (process.env.ENV !== "production") {
+  if (process.env.NODE_ENV !== "production") {
     stackTrace = err.stack
   }
 
