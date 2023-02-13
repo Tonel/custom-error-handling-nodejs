@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@appsignal/nodejs": "^3.0.7",
     "express": "4.18.2"
   },
   "scripts": {
-    "start": "node --require ./src/appsignal.cjs src/index.js"
+    "start": "node src/index.js"
   },
   "devDependencies": {
     "eslint": "8.33.0",
